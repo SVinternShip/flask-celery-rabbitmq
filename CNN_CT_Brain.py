@@ -9,7 +9,7 @@ import sys
 from os import path
 import requests
 from celery_app import celery
-sys.path.append(path.dirname(path.abspath(__file__)))
+sys.path.append(path.dirname(path.abspath(path.abspath(__file__))))
 
 
 filterwarnings("ignore", category=DeprecationWarning)
@@ -27,15 +27,15 @@ def get_dcm_predicted(dcm_file_path):
     print('original_img : {}, lime_img : {}, '.format(img_original, img_lime)) # celery 실행된 터미널에 찍힘
     print('patient_id : {}, study_modality : {}, predicted : {}'.format(patient_id, study_modality, predicted))
 
-    os.remove(dcm_file_path)
-    url = "http://127.0.0.1:8000/ct/storeResult"
+    '''
+    url = "http://127.0.0.1:5000/ct/storeResult"
     payload = {'prediction': str(predicted),
                'patient_result': '7',
                'studyDate': '2022-07-06 23:11:35.573131+09',
                'patientName': '전준형',
                'patient_id': str(patient_id),
                'study_modality': str(study_modality)}
-    files = [
+    files = [ 
         ('original_image', img_original),
         ('lime_image', ('free-icon-rod-of-asclepius-659124.png', img_lime))
     ]
@@ -43,8 +43,9 @@ def get_dcm_predicted(dcm_file_path):
         'Cookie': 'csrftoken=MURZta4Ehw5gv0BOsfo5NNqm2cH0amkQh4hwdA5ejHLgwLpAGXvlyxxoUx2IFr8A'
     }
     response = requests.request("POST", url, headers=headers, data=payload, files=files)
-
-    return response.json()
+    '''
+    os.remove(dcm_file_path)
+    return predicted
 
 
 @celery.task

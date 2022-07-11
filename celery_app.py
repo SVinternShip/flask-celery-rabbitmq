@@ -92,7 +92,7 @@ def store_result():
     # 로컬에 request에 있는 것 저장
     dcm_file = request.files['file']
     dcm_file_path = dcm_file.filename
-    # print(type(dcm_file))
+    print('dcm_file_path : {}'.format(dcm_file_path))
     dcm_file.save(dcm_file_path) # request.filename 이거로 저장하기
 
     patient_result = request.form['patient_result']
