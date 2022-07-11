@@ -1,0 +1,31 @@
+version: "3"
+services:
+  flask:
+    build:
+      context: .
+    restart: always
+    ports:
+      - "5000:5000"
+    depends_on:
+      - rabbit
+  rabbit:
+    hostname: rabbit
+    image: rabbitmq:latest
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      - RABBITMQ_DEFAULT_PASS=rabbitmq
+    ports:
+      - "7000:7000"        
+  worker:
+    build:
+      context: .
+    hostname: worker
+    entrypoint: celery
+    command: -A celery_app.celery worker --loglevel=info --pool=solo --logfile=celery.log
+    volumes:
+      - .:/app
+    links:
+      - rabbit
+    depends_on:
+      - rabbit
+
