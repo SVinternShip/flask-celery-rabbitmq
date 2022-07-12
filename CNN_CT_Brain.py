@@ -9,7 +9,7 @@ import sys
 from os import path
 import requests
 from celery_app import celery
-sys.path.append(path.dirname(path.abspath(path.abspath(__file__))))
+sys.path.append(path.dirname(path.abspath(__file__)))
 
 
 filterwarnings("ignore", category=DeprecationWarning)

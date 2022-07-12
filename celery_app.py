@@ -49,7 +49,7 @@ app.config.update(
 CORS(app)
 CORS(app, resources={r'*': {'origins': '*'}})
 celery = make_celery(app)
-sys.path.append(path.dirname(path.abspath(__file__)))
+sys.path.append(path.dirname(path.abspath(path.abspath(__file__))))
 
 
 @app.route('/', methods=['GET'])
