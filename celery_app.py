@@ -78,7 +78,7 @@ def store_result():
     # print(dcm_file, patient_result)
 
 
-    task_id_predicted = CNN_CT_Brain.get_dcm_predicted.delay(dcm_file_path) # 여기서 리턴값 오는 게 아니라 task_id 만 받아올 수 있음. 셀러리에서 pydicom에서 로컬path로 받을수있음. 그 저장한 path를 셀러리로 보냄. 그후 로컬에 저장한 파일 삭제
+    task_id_predicted = CNN_CT_Brain.get_dcm_predicted.delay(dcm_file_path, patient_result) # 여기서 리턴값 오는 게 아니라 task_id 만 받아올 수 있음. 셀러리에서 pydicom에서 로컬path로 받을수있음. 그 저장한 path를 셀러리로 보냄. 그후 로컬에 저장한 파일 삭제
     print("task id--------------")
     print(task_id_predicted)
 
