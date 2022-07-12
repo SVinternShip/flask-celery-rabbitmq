@@ -89,7 +89,7 @@ def predict_and_lime(img_preprocessed, img_original):
     ml_result = loaded.predict(img_preprocessed)[0][
         0]  # 모델의 결과값 받아오기, 참고로 뒤에 sigmoid 함수를 붙였으므로 0에 가까운 값 or 1에 가까운 값이 출력된다
 
-    ml_result = "hemorrhage" if ml_result < 0.2 else "normal"
+    ml_result = "hemorrhage" if ml_result < 0.5 else "normal"
 
     if ml_result == "hemorrhage":  # 뇌출혈로 예측할 때에만 LIME 실행
 
