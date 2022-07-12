@@ -64,27 +64,6 @@ def hello_pybo():
     return 'Hello, Pybo!'
 
 
-'''
-import requests
-
-url = "http://127.0.0.1:8000/ct/storeResult"
-
-payload={'prediction': 'True',
-'patient_result': '7',
-'studyDate': '2022-07-06 23:11:35.573131+09',
-'patientName': '전준형'}
-files=[
-  ('original_image',('AdobeStock_227788356.jpeg',open('/Users/joonhyoungjeon/Downloads/AdobeStock_227788356.jpeg','rb'),'image/jpeg')),
-  ('lime_image',('free-icon-rod-of-asclepius-659124.png',open('/Users/joonhyoungjeon/Downloads/free-icon-rod-of-asclepius-659124.png','rb'),'image/png'))
-]
-headers = {
-  'Cookie': 'csrftoken=MURZta4Ehw5gv0BOsfo5NNqm2cH0amkQh4hwdA5ejHLgwLpAGXvlyxxoUx2IFr8A'
-}
-
-response = requests.request("POST", url, headers=headers, data=payload, files=files)
-'''
-
-
 @app.route('/ct/storeResult', methods=['GET', 'POST'])
 def store_result():
     import CNN_CT_Brain
