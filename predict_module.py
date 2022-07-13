@@ -62,16 +62,20 @@ def dicom2nparray(dcm_file_path):
 def preprocess(dcm_file_path):
     dcm_file = dicom.read_file(dcm_file_path)  # 해당 파일 위치에 있는 dicom file READ : dcm_file 은 dicom 데이터셋 인스턴스이다.
 
-    patient_id = dcm_file.PatientID  # 환자  ID 받아오기
-    study_modality = dcm_file.Modality  # Study Modality 받아오기
-    # study_date = dcm_file.StudyDate            #Study Date 받아오기 (지금있는 데이터셋에서는 없어서 주석처리)
+    patient_id = dcm_file.PatientID            # 환자  ID 받아오기
+    study_modality = dcm_file.Modality         # Study Modality 받아오기 ("CT")
+    patient_name = dcm_file.PatientName        # 환자명 받아오기(영문 대문자 : JIN YOUNGJIN)
+    patient_study_id = dcm_file.StudyID        # StudyID 받아오기(4자리 일련번호)
+    patient_study_date = dcm_file.StudyDate    # StudyDate 받아오기('2022-07-13')
+    patient_study_time = dcm_file.StudyTime    # StudyTime 받아오기('13:57:12')
 
     img = convert_dcm2img_3ch(dcm_file)  # dicom 데이터셋 인스턴스를 입력받아서 3채널 이미지로 변환한다. 예 : (512,512,3)
     img = np.array(img) / 255.0  # 해당 이미지 픽셀값을 0 ~ 1 로 정규화한다.
     img = cv2.resize(img, (224, 224))  # 이미지를 (224,224) 로 resize 한다.
     img = np.expand_dims(img, axis=0)  # BATCH 로 만들기 위해 축을 하나 추가
-
-    return img, patient_id, study_modality  # BATCH 반환,환자ID,StudyModality
+    
+    #    BATCH 반환,환자ID,   StudyModality,   환자명,        StudyID,        StudyDate,         StudyTime
+    return img, patient_id, study_modality,patient_name,patient_study_id,patient_study_date,patient_study_time  
 
 
 # LIME 결과를 출력한다.
