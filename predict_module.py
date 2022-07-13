@@ -69,11 +69,11 @@ def preprocess(dcm_file_path):
     patient_study_date = dcm_file.StudyDate    # StudyDate 받아오기('2022-07-13')
     patient_study_time = dcm_file.StudyTime    # StudyTime 받아오기('13:57:12')
 
-    img = convert_dcm2img_3ch(dcm_file)  # dicom 데이터셋 인스턴스를 입력받아서 3채널 이미지로 변환한다. 예 : (512,512,3)
-    img = np.array(img) / 255.0  # 해당 이미지 픽셀값을 0 ~ 1 로 정규화한다.
-    img = cv2.resize(img, (224, 224))  # 이미지를 (224,224) 로 resize 한다.
-    img = np.expand_dims(img, axis=0)  # BATCH 로 만들기 위해 축을 하나 추가
-    
+    img = convert_dcm2img_3ch(dcm_file)        # dicom 데이터셋 인스턴스를 입력받아서 3채널 이미지로 변환한다. 예 : (512,512,3)
+    img = np.array(img) / 255.0                # 해당 이미지 픽셀값을 0 ~ 1 로 정규화한다.
+    img = cv2.resize(img, (224, 224))          # 이미지를 (224,224) 로 resize 한다.
+    img = np.expand_dims(img, axis=0)          # BATCH 로 만들기 위해 축을 하나 추가
+
     #    BATCH 반환,환자ID,   StudyModality,   환자명,        StudyID,        StudyDate,         StudyTime
     return img, patient_id, study_modality,patient_name,patient_study_id,patient_study_date,patient_study_time  
 
