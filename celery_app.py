@@ -88,13 +88,3 @@ def store_result():
     return jsonify(
         task_id=str(task_id_predicted)
     )
-
-
-
-
-
-
-
-
-
-

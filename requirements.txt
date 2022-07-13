@@ -1,4 +1,4 @@
-tensorflow==2.9.1
+tensorflow
 celery==4.4.0
 Flask==2.0.3
 requests==2.22.0
@@ -6,9 +6,8 @@ amqp==2.5.2
 numpy==1.22.4
 keras==2.9.0
 opencv-python==4.5.4.58
-Pillow==8.4.0
-pydicom==2.3.0
+Pillow
+pydicom
 Flask-Cors
 matplotlib==3.4.3
 lime==0.2.0.1
-flower

@@ -104,7 +104,7 @@ def predict_and_lime(img_preprocessed, img_original):
             classifier_fn=loaded.predict,
             top_labels=5,
             hide_color=0,
-            num_samples=500
+            num_samples=50
         )
 
         temp, mask = explanation.get_image_and_mask(explanation.top_labels[0], positive_only=False, num_features=1,
