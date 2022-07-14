@@ -88,7 +88,7 @@ def preprocess(dcm_file_path):
 
 def predict_and_lime(img_preprocessed, img_original):
     # 모델 불러오기
-    loaded = keras.models.load_model('../resnet50_model.h5')
+    loaded = keras.models.load_model('../resnet50_0712_model.h5')
 
     ml_result = loaded.predict(img_preprocessed)[0][
         0]  # 모델의 결과값 받아오기, 참고로 뒤에 sigmoid 함수를 붙였으므로 0에 가까운 값 or 1에 가까운 값이 출력된다
