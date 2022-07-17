@@ -22,12 +22,24 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
-  worker:
+  worker_1:
     container_name: assict_worker_1
     build:
       context: .
-    hostname: worker
-    command: celery -A tasks worker --pool threads --loglevel INFO
+    hostname: worker_1
+    command: celery -A tasks worker --pool threads --loglevel INFO -n worker_1
+    links:
+      - rabbit
+    depends_on:
+      - rabbit
+    volumes:
+      - ./temp:/app/temp
+  worker_2:
+    container_name: assict_worker_2
+    build:
+      context: .
+    hostname: worker_2
+    command: celery -A tasks worker --pool threads --loglevel INFO -n worker_2
     links:
       - rabbit
     depends_on:
