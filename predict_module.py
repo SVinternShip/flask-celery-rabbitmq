@@ -1,7 +1,6 @@
 import numpy as np
 from PIL import Image
 import pydicom as dicom
-from tensorflow import keras
 import cv2
 from lime import lime_image
 import matplotlib.pyplot as plt
@@ -86,10 +85,7 @@ def preprocess(dcm_file_path):
 # datagenerator 로 데이터를 받아올때 tensorflow 에서는 class 번호를 알파벳 순으로 부여한다. : "이러한 데이터세트의 class_names 속성에서 클래스 이름을 찾을 수 있습니다. 이들 클래스 이름은 알파벳 순서의 디렉토리 이름에 해당합니다."
 
 
-def predict_and_lime(img_preprocessed, img_original):
-    # 모델 불러오기
-    loaded = keras.models.load_model('./model-best.h5')
-
+def predict_and_lime(img_preprocessed, img_original, loaded):
     ml_result = loaded.predict(img_preprocessed)[0][
         0]  # 모델의 결과값 받아오기, 참고로 뒤에 sigmoid 함수를 붙였으므로 0에 가까운 값 or 1에 가까운 값이 출력된다
 

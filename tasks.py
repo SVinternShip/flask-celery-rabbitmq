@@ -9,6 +9,7 @@ import requests
 from PIL import Image
 from celery import Celery
 import predict_module
+from tensorflow import keras
 
 BROKER_URL = 'amqp://rabbitmq:rabbitmq@rabbit'
 #BROKER_URL = 'amqp://guest:guest@localhost:5672'
@@ -17,16 +18,19 @@ CELERY = Celery('tasks',
                 broker=BROKER_URL,
                 backend='rpc://')
 
+# 여기서 글로벌로 먼저 모델 불러 와서, predict_module.predict_and_lime() 에 매개변수로 모델을 넘겨주도록 해줘야 함.
+loaded = keras.models.load_model('./model-best.h5')
 
 # CELERY.conf.accept_content = ['json', 'msgpack']
 # CELERY.conf.result_serializer = 'msgpack'
 
 @CELERY.task()
 def get_dcm_predicted(dcm_file_path, patient_result):
+    global loaded
     img_original = predict_module.dicom2nparray(dcm_file_path)  # 원본이미지
     img_preprocessed, patient_id, patient_name, study_modality, ct_study_id, ct_study_date, ct_study_time = predict_module.preprocess(
         dcm_file_path)  # batch,환자 ID,StudyModality
-    predicted, img_lime = predict_module.predict_and_lime(img_preprocessed, img_original)  # 모델결과문장,lime이미지
+    predicted, img_lime = predict_module.predict_and_lime(img_preprocessed, img_original, loaded)  # 모델결과문장,lime이미지
     print('patient_id : {}, study_modality : {}, predicted : {}'.format(patient_id, study_modality, predicted))
     print(type(img_lime), type(img_original))  # <class 'NoneType'>, <class 'numpy.ndarray'>
     print(type(predicted), type(patient_result), type(study_modality), type(patient_id))
@@ -53,6 +57,8 @@ def get_dcm_predicted(dcm_file_path, patient_result):
     pil_lime.save(temp_lime_file, 'png')
 
     print(temp_original_file.name)
+
+    file_name = dcm_file_path.split('/')[2].replace("dcm", "png")
     url = "http://54.180.55.27:8000/api/ct/storeResult"
     payload = {'prediction': predicted,
                'patient_result': patient_result,
@@ -60,8 +66,8 @@ def get_dcm_predicted(dcm_file_path, patient_result):
                'patientName': patient_name,
                'fileName': dcm_file_path}
     files = [
-        ('original_image', (dcm_file_path.replace("dcm", "png"), open(temp_original_file.name, 'rb'), 'image/png')),
-        ('lime_image', (dcm_file_path.replace("dcm", "png"), open(temp_lime_file.name, 'rb'), 'image/png'))
+        ('original_image', (file_name, open(temp_original_file.name, 'rb'), 'image/png')),
+        ('lime_image', (file_name, open(temp_lime_file.name, 'rb'), 'image/png'))
     ]
     response = requests.request("POST", url, data=payload, files=files)
     print(response)
