@@ -6,6 +6,8 @@ import os
 import tempfile
 import numpy as np
 import requests
+from gcloud import storage
+import datetime
 from PIL import Image
 from celery import Celery
 import predict_module
@@ -71,6 +73,19 @@ def get_dcm_predicted(dcm_file_path, patient_result):
     ]
     response = requests.request("POST", url, data=payload, files=files)
     print(response)
+
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "../robotic-haven-356701-952019494169.json"
+
+    bucket_name = 'savedcmbucket'  # 서비스 계정 생성한 bucket 이름 입력
+    source_file_name = dcm_file_path  # GCP에 업로드할 파일 절대경로
+    destination_blob_name = str(datetime.datetime.now()) + '_' + source_file_name.split('/')[
+        -1]  # 업로드할 파일을 GCP에 저장할 때의 이름
+
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(destination_blob_name)
+
+    blob.upload_from_filename(source_file_name)
     os.remove(dcm_file_path)
 
     # return 'good'

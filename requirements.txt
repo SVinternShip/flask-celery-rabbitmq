@@ -11,3 +11,4 @@ pydicom
 Flask-Cors
 matplotlib==3.4.3
 lime==0.2.0.1
+gcloud
