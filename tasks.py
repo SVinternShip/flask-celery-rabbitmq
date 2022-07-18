@@ -60,13 +60,14 @@ def get_dcm_predicted(dcm_file_path, patient_result):
 
     print(temp_original_file.name)
 
-    file_name = dcm_file_path.split('/')[2].replace("dcm", "png")
+    file_name = dcm_file_path.split('/')[-1].replace("dcm", "png")
     url = "http://54.180.55.27:8000/api/ct/storeResult"
     payload = {'prediction': predicted,
                'patient_result': patient_result,
                'studyDate': ct_study_date + 'T' + ct_study_time,
                'patientName': patient_name,
                'fileName': dcm_file_path}
+
     files = [
         ('original_image', (file_name, open(temp_original_file.name, 'rb'), 'image/png')),
         ('lime_image', (file_name, open(temp_lime_file.name, 'rb'), 'image/png'))
