@@ -4,10 +4,10 @@
 
 import os
 import tempfile
-from datetime import datetime
 
 import numpy as np
 import requests
+import datetime
 from PIL import Image
 from celery import Celery
 import predict_module
