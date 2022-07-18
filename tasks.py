@@ -4,19 +4,26 @@
 
 import os
 import tempfile
+from datetime import datetime
+
 import numpy as np
 import requests
 from PIL import Image
 from celery import Celery
 import predict_module
 from tensorflow import keras
-
+from google.cloud import storage
 BROKER_URL = 'amqp://rabbitmq:rabbitmq@rabbit'
 #BROKER_URL = 'amqp://guest:guest@localhost:5672'
 
 CELERY = Celery('tasks',
                 broker=BROKER_URL,
                 backend='rpc://')
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./robotic-haven-356701-952019494169.json"
+bucket_name = 'savedcmbucket'    # 서비스 계정 생성한 bucket 이름 입력
+storage_client = storage.Client()
+bucket = storage_client.bucket(bucket_name)
 
 # 여기서 글로벌로 먼저 모델 불러 와서, predict_module.predict_and_lime() 에 매개변수로 모델을 넘겨주도록 해줘야 함.
 loaded = keras.models.load_model('./model-best.h5')
@@ -72,6 +79,10 @@ def get_dcm_predicted(dcm_file_path, patient_result):
     ]
     response = requests.request("POST", url, data=payload, files=files)
     print(response)
+    destination_blob_name = str(datetime.now()) + '_' + dcm_file_path.split('/')[-1]
+    blob = bucket.blob(destination_blob_name)
+    blob.upload_from_filename(dcm_file_path)
+
     os.remove(dcm_file_path)
 
     # return 'good'
