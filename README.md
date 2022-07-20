@@ -2,24 +2,24 @@
 
 [작성중]
 
-    구글 클라우드 스토리지가 필요
+구글 클라우드 스토리지가 필요
     ```
         https://cloud.google.com/docs/
     ```
-    클라우드 스토리지에 가서 버킷 파내기
+클라우드 스토리지에 가서 버킷 파내기
     
     ```
         https://cloud.google.com/docs/authentication/production?hl=ko#create-service-account-console
     ```
     
-    접속 json key file 발급 받급 후 git clone
+접속 json key file 발급 받급 후 git clone
     
     ```
         https://cloud.google.com/docs/authentication/production?hl=ko#create_service_account
     ```
     
     
-    task.py 에 해당 key file path 에 맞게 코드 수정
+task.py 에 해당 key file path 에 맞게 코드 수정
     
     ```python
         def explicit():
@@ -36,6 +36,6 @@
         
     ```
     
-    필요 없는 worker 하나 지우기
+필요 없는 worker 하나 지우기
     
     
