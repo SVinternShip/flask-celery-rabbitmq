@@ -53,7 +53,7 @@
 
 #### preprocess
 
-![image](https://user-images.githubusercontent.com/53938323/180133485-6bb3cda8-37c4-4d91-b1bc-3c3002bbda86.png)
+![image](https://user-images.githubusercontent.com/53938323/180136039-a29d5f12-3736-44fa-87b6-1813e01cccca.png)
 
     make gray scale dicom file to 3 channel jpg file
 
