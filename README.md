@@ -1,5 +1,7 @@
 # flask.celery.rabbitmq
 
+json 경로랑 버킷 이름 수정
+
 
 #### Requires Google Cloud Storage
 
@@ -34,6 +36,10 @@
         
 ### *tasks.py*
 
+[pro > flask api ,
+
+뒤에 ml
+
 ![image](https://user-images.githubusercontent.com/53938323/180130812-5a5a8a28-2544-4dba-99a5-aa7404f66b19.png)
 
 
@@ -67,3 +73,6 @@
     The dicom file is preprocessed according to the model input value and other dicom attributes are extracted.
     The preprocessed image is input to the model, and a mask explaining the reason predicted through the rim expander is returned.
 
+    [작성중]
+    해당 결과(모델 예측, 라임 마스트)를 장고 서버로 전송
+    원본 다이콤 파일을 구글 스토리지에 저장
