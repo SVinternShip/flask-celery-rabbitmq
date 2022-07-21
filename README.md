@@ -25,12 +25,7 @@
         
 ### *tasks.py*
 
-[pro > flask api ,
-
-뒤에 ml
-
-![image](https://user-images.githubusercontent.com/53938323/180130812-5a5a8a28-2544-4dba-99a5-aa7404f66b19.png)
-
+![image](https://user-images.githubusercontent.com/53938323/180138287-48fe799d-9f3a-4422-afcf-13a85657cce2.png)
 
 #### RABBITMQ
 
@@ -57,11 +52,11 @@
 #### predict & lime explain
 
    
-![image](https://user-images.githubusercontent.com/53938323/180135637-4643b279-a90b-4f7a-891e-f79f21292ffc.png)
+![image](https://user-images.githubusercontent.com/53938323/180139170-16ea9fdc-490d-4d7c-a2a2-b3666845eda3.png)
+
 
     The dicom file is preprocessed according to the model input value and other dicom attributes are extracted.
     The preprocessed image is input to the model, and a mask explaining the reason predicted through the rim expander is returned.
 
-    [작성중]
-    해당 결과(모델 예측, 라임 마스트)를 장고 서버로 전송
-    원본 다이콤 파일을 구글 스토리지에 저장
+    Send the corresponding result (model prediction, lime mask) to Django Server
+    Save the original image to Google Storage
