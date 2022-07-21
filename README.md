@@ -52,7 +52,8 @@
 #### predict & lime explain
 
    
-![image](https://user-images.githubusercontent.com/53938323/180139170-16ea9fdc-490d-4d7c-a2a2-b3666845eda3.png)
+![image](https://user-images.githubusercontent.com/53938323/180142309-80089304-7b9c-43cf-a973-3ab5c465d471.png)
+
 
 
     The dicom file is preprocessed according to the model input value and other dicom attributes are extracted.
