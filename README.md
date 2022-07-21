@@ -53,6 +53,11 @@
 
 #### preprocess
 
+![image](https://user-images.githubusercontent.com/53938323/180133485-6bb3cda8-37c4-4d91-b1bc-3c3002bbda86.png)
+
+    make gray scale dicom file to 3 channel jpg file
+
+
 
 #### predict & lime explain
 
