@@ -32,6 +32,8 @@
     buckets = list(storage_client.list_buckets())
     print(buckets)
         
+### *tasks.py*
+
 
     
 
