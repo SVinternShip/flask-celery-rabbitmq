@@ -64,3 +64,6 @@
    
 ![image](https://user-images.githubusercontent.com/53938323/180135637-4643b279-a90b-4f7a-891e-f79f21292ffc.png)
 
+    The dicom file is preprocessed according to the model input value and other dicom attributes are extracted.
+    The preprocessed image is input to the model, and a mask explaining the reason predicted through the rim expander is returned.
+
