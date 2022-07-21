@@ -4,7 +4,7 @@
 
 구글 클라우드 스토리지가 필요
 
-        https://cloud.google.com/docs/
+    https://cloud.google.com/docs/
 
 클라우드 스토리지에 가서 버킷 파내기
     
