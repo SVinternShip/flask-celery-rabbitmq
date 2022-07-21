@@ -34,6 +34,9 @@
         
 ### *tasks.py*
 
+![image](https://user-images.githubusercontent.com/53938323/180130812-5a5a8a28-2544-4dba-99a5-aa7404f66b19.png)
+
+
 
     
 
