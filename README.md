@@ -1,7 +1,5 @@
 # flask.celery.rabbitmq
 
-json 경로랑 버킷 이름 수정
-
 
 #### Requires Google Cloud Storage
 
@@ -20,7 +18,7 @@ json 경로랑 버킷 이름 수정
 
     
     
-#### Modify the code to match the corresponding key file path to task.py
+#### Modify the code to match the corresponding key file path and bucket name to task.py
     
     def explicit():
     from google.cloud import storage
