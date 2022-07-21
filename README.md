@@ -48,6 +48,8 @@
     An alternative to this is to give two or more BATCHSIZE so that multiple inputs can be received at the same time and processed at the same time.
     
     
-    
+### *predict_module.py*
+
+
 
    
