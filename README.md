@@ -62,3 +62,5 @@
 #### predict & lime explain
 
    
+![image](https://user-images.githubusercontent.com/53938323/180135637-4643b279-a90b-4f7a-891e-f79f21292ffc.png)
+
