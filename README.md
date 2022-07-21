@@ -1,6 +1,16 @@
 # flask.celery.rabbitmq
 
 
+#### docker build
+
+    docker-compose up --build
+    
+    
+#### model load
+
+     wandb link : https://wandb.ai/pypyp/aiinternship/runs/2u55kqpw/files?workspace=user-sykim1106
+     download model-best.h5 and change model file path
+
 #### Requires Google Cloud Storage
 
     https://cloud.google.com/docs/
@@ -61,3 +71,6 @@
 
     Send the corresponding result (model prediction, lime mask) to Django Server
     Save the original image to Google Storage
+    
+    
+   
