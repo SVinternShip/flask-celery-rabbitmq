@@ -71,8 +71,7 @@ def get_dcm_predicted(dcm_file_path, patient_result):
                'patient_result': patient_result,
                'studyDate': ct_study_date + 'T' + ct_study_time,
                'patientName': patient_name,
-               'fileName': dcm_file_path}
-
+               'fileName': file_name}
     files = [
         ('original_image', (file_name, open(temp_original_file.name, 'rb'), 'image/png')),
         ('lime_image', (file_name, open(temp_lime_file.name, 'rb'), 'image/png'))
