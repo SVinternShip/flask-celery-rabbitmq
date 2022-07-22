@@ -5,7 +5,6 @@
 
 
 #### docker build
-![image](https://user-images.githubusercontent.com/53938323/180365311-6c9b2ed8-18e1-49ee-9d8f-43839cf97edb.png)
 
     docker-compose up --build
     
@@ -42,7 +41,6 @@
 ![image](https://user-images.githubusercontent.com/53938323/180138287-48fe799d-9f3a-4422-afcf-13a85657cce2.png)
 
 #### RABBITMQ
-![image](https://user-images.githubusercontent.com/53938323/180365405-9e46736c-7a6b-4fc8-8636-d22c942162b5.png)
 
     Rabbitmq assigns continuous (long-term) tasks to CELERY WORKERS.
     CELERY WOKERS store the original image from the preprocessing function and the Lime image returned from the predict_and_lime on the server.
