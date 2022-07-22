@@ -58,7 +58,7 @@
 
 ![image](https://user-images.githubusercontent.com/53938323/180136039-a29d5f12-3736-44fa-87b6-1813e01cccca.png)
 
-    make gray scale dicom file to 3 channel jpg file
+    make gray scale dicom file to 3 channel image file
 
 
 
