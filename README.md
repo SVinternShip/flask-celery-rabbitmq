@@ -1,4 +1,5 @@
-![image](https://user-images.githubusercontent.com/53938323/180361925-78cb6a09-3faa-4ffd-8952-fe24497bd616.png)
+![image](https://user-images.githubusercontent.com/53938323/180675642-09d2cefd-7561-4f33-9011-dd6648578728.png)
+
 
 
 # flask.celery.rabbitmq
