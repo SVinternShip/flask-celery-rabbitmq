@@ -1,5 +1,19 @@
+![image](https://user-images.githubusercontent.com/53938323/180675642-09d2cefd-7561-4f33-9011-dd6648578728.png)
+
+
+
 # flask.celery.rabbitmq
 
+
+#### docker build
+
+    docker-compose up --build
+    
+    
+#### model load
+
+     wandb link : https://wandb.ai/pypyp/aiinternship/runs/2u55kqpw/files?workspace=user-sykim1106
+     download model-best.h5 and change model file path
 
 #### Requires Google Cloud Storage
 
@@ -45,7 +59,7 @@
 
 ![image](https://user-images.githubusercontent.com/53938323/180136039-a29d5f12-3736-44fa-87b6-1813e01cccca.png)
 
-    make gray scale dicom file to 3 channel jpg file
+    make gray scale dicom file to 3 channel image file
 
 
 
@@ -61,3 +75,6 @@
 
     Send the corresponding result (model prediction, lime mask) to Django Server
     Save the original image to Google Storage
+    
+    
+   
