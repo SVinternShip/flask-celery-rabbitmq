@@ -66,7 +66,7 @@ def get_dcm_predicted(dcm_file_path, patient_result):
     print(temp_original_file.name)
 
     dcm_file_name = dcm_file_path.split('/')[-1]
-    url = "http://54.180.55.27:8000/api/ct/storeResult"
+    url = "http://assict.kro.kr/api/ct/storeResult"
     payload = {'prediction': predicted,
                'patient_result': patient_result,
                'studyDate': ct_study_date + 'T' + ct_study_time,
