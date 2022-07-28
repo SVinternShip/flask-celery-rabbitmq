@@ -3,6 +3,28 @@
 
 
 # flask.celery.rabbitmq
+## Index
+- [SVinternShip](#SVinternShip)
+  - [1. Prerequisites](#1-prerequisites)
+  - [2. Installation Process](#2-installation-process)
+  - [3. Getting Started](#3-getting-started)
+  - [4. File Manifest](#4-file-manifest)
+  - [5. Copyrights / End User Licesnse](#5-copyrights--end-user-licesnse)
+  - [6. Contact Information](#6-contact-information)
+
+## 1. Prerequisites
+
+Our service was created through the AI Application Development by Silicon Valley Engineering program organized by Headstart Silicon Valley.
+http://www.learnflagly.com/courses/347/
+
+## 2. Installation Process
+
+```
+$ pip3 install requirements.txt
+```
+
+## 3. Getting Started
+- Please complete the Cuda installation and requirements installation
 
 
 #### docker build
@@ -76,7 +98,16 @@
     Send the corresponding result (model prediction, lime mask) to Django Server
     Save the original image to Google Storage
     
-    
+
+## 4. File Manifest && API
+```
+
+```
+
+
+## 5. Copyrights / End User Licesnse
+
+This project is not intended for commercial use, please do not use it for commercial purpose
    
 | Name    | 전준형                                        |김민지                               | 김성윤                                        | 김정원                                    | 전경희                               |
 | ------- | --------------------------------------------- | ------------------------------------ | --------------------------------------------- | --------------------------------------- | --------------------------------------------- |
