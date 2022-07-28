@@ -101,7 +101,14 @@ $ pip3 install requirements.txt
 
 ## 4. File Manifest && API
 ```
-
+📦root
+ ┣ 📜api.py
+ ┣ 📜docker-compose.yml
+ ┣ 📜Dockerfile
+ ┣ 📜predict_module.py
+ ┣ 📜README.md
+ ┣ 📜requirements.txt
+ ┗ 📜tasks.py
 ```
 
 
